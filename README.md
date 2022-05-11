@@ -1,3 +1,8 @@
+## Pair repo for NextJS Mega Tutorial
+
+Questa è una semplice applicazione implementata con NextJS e contiene il progetto
+NextJS sviluppato durante il corso.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
