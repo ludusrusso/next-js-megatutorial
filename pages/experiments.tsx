@@ -1,5 +1,7 @@
 // pages/experiments.tsx
 import { useEffect, useState } from "react";
+import { Footer } from "../components/footer";
+import { Nav } from "../components/nav";
 
 const ExperimentsPage = () => {
   const posts: PostPreviewProps[] = [
@@ -62,14 +64,6 @@ const ExperimentsPage = () => {
 };
 
 export default ExperimentsPage;
-
-const Nav = () => {
-  return <nav>React Megaturial Navigation</nav>;
-};
-
-const Footer = () => {
-  return <footer>React Megaturial; all right reserverd</footer>;
-};
 
 const Visualizer = ({ num }: { num: number }) => {
   return <span>Valore = {num}</span>;
