@@ -1,14 +1,14 @@
 import { Footer } from "../components/footer";
 import { Nav } from "../components/nav";
 
-const Home = () => {
+const About = () => {
   return (
     <div className="">
       <Nav />
-      <h1> Home </h1>
+      <h1> About</h1>
       <Footer />
     </div>
   );
 };
 
-export default Home;
+export default About;
