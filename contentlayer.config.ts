@@ -22,9 +22,47 @@ export const BlogPost = defineDocumentType(() => ({
       required: false,
     },
   },
+  computedFields: {
+    isDraft: {
+      type: "boolean",
+      resolve: (post) => {
+        return !post.date;
+      },
+    },
+    path: {
+      type: "string",
+      resolve: (post) => {
+        if (!post.date) {
+          return `draft-${post.title}`;
+        }
+        const date = computeDate(new Date(post.date));
+        const slug = slugify(post.title);
+        return `${date}-${slug}`;
+      },
+    },
+  },
 }));
 
 export default makeSource({
   contentDirPath: "content",
   documentTypes: [BlogPost],
 });
+
+function computeDate(date: Date) {
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const dd = String(date.getDate()).padStart(2, "0");
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+function slugify(title: string) {
+  return title
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w\-]+/g, "")
+    .replace(/\-\-+/g, "-")
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
+}

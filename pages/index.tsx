@@ -33,7 +33,7 @@ export default Home;
 
 export const getStaticProps = async () => {
   const renderedTime = new Date();
-  const posts = allBlogPosts.map(getPostFrontmatter);
+  const posts = allBlogPosts.filter((p) => !p.isDraft).map(getPostFrontmatter);
   return {
     props: {
       renderedTime: renderedTime.toISOString(),
